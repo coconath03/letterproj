@@ -1,0 +1,207 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Allow vertical scrolling on small screens */
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  color: #ffffff;
+  padding: 20px 0; /* Adds spacing on top and bottom when scrolling */
+}
+
+/* Background Animated Hearts */
+.hearts-container {
+  position: fixed; /* Fixed so background hearts stay in place during scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-105vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Screen 1: Lock / Envelope Box */
+.card-screen {
+  text-align: center;
+  z-index: 10;
+  transition: all 0.6s ease-in-out;
+}
+
+.envelope-card {
+  background: #111111;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+  max-width: 350px;
+  width: 90%;
+  border: 1px solid #333333;
+}
+
+.heart-icon {
+  font-size: 45px;
+  margin-bottom: 15px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.open-btn {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.open-btn:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+/* Hidden Utility */
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  position: absolute;
+}
+
+/* Screen 2: Love Letter */
+.letter-screen {
+  z-index: 10;
+  transition: all 0.6s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.letter-paper {
+  background: #111111;
+  padding: 40px 30px;
+  border-radius: 16px;
+  max-width: 450px;
+  width: 90%;
+  /* Added internal scrolling for long letters */
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+  border: 1px solid #333333;
+  position: relative;
+  text-align: left;
+}
+
+/* Custom styled scrollbar for the letter card */
+.letter-paper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.letter-paper::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+.letter-paper::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+
+.stamp {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 24px;
+}
+
+.letter-title {
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.letter-body {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #cccccc;
+  margin-bottom: 25px;
+}
+
+.letter-signature {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: right;
+  margin-bottom: 25px;
+}
+
+.close-btn {
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+  color: #888888;
+  border: 1px solid #444444;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+
+.close-btn:hover {
+  background: #222222;
+  color: #ffffff;
+}
